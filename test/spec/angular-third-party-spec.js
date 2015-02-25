@@ -13,7 +13,7 @@ describe('Module: hc.thirdParty', function () {
     jQuery = _jQuery_;
   }));
 
-  it('should correctly display hello world', function () {
+  it('should remove from $window and create factory', function () {
     expect(thirdParty).toBeDefined();
     expect($window).toBeDefined();
 
@@ -22,7 +22,17 @@ describe('Module: hc.thirdParty', function () {
 
     expect(jQuery).toBeDefined();
     expect(jQuery.fn.jquery).toBeDefined();
+  });
 
+  it('should work when config called twice', function () {
+    expect(thirdParty).toBeDefined();
+    expect($window).toBeDefined();
+
+    expect(thirdParty.jQuery).toBeDefined();
+    expect($window.jQuery).toBeUndefined();
+
+    expect(jQuery).toBeDefined();
+    expect(jQuery.fn.jquery).toBeDefined();
   });
 
 });

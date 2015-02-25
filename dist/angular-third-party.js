@@ -19,10 +19,10 @@ angular.module('hc.thirdParty', []).provider('thirdParty', [
             } catch (err) {
               $window[key] = undefined;
             }
-            $provide.factory(key, function () {
-              return factory;
-            });
           }
+          $provide.factory(key, function () {
+            return $window.thirdParty[key];
+          });
         });
         return $window.thirdParty;
       }
