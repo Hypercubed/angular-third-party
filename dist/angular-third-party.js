@@ -9,10 +9,10 @@ angular.module('hc.thirdParty', []).provider('thirdParty', [
     this.$get = [
       '$window',
       function ($window) {
+        $window.thirdParty = $window.thirdParty || {};
         list.forEach(function set(key) {
           var factory = $window[key];
           if (factory) {
-            $window.thirdParty = $window.thirdParty || {};
             $window.thirdParty[key] = factory;
             try {
               delete $window[key];
